@@ -1,0 +1,194 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg,#d9e6f5 0%,#b8d9f0 100%);
+    font-family: 'Segoe UI', Roboto,'Helvetica Neue',sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.endocrine-container {
+    max-width: 1300px;
+    width: 100%;
+    background: rgba(225, 248, 235, 0.35);
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+}
+
+.header {
+    background: #2c3e4e;
+    color: white;
+    padding: 1.2rem 2rem;
+    text-align: center;
+
+}
+
+.header h1 {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hormone-icon {
+    opacity: 0.85;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+.endocrine-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    padding: 2rem;
+}
+
+.diagrama-area {
+    flex: 2;
+    min-width: 280px;
+    background: #fffaf2;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.diagrama-area svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius:1rem ;
+    background:#fef7e6 ;
+    cursor: pointer;
+}
+
+.info-area {
+    flex:1.2 ;
+    min-width: 260px;
+    background: #f3f6fc ;
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction:column ;
+    gap: 1.2rem;
+}
+
+.selected-card {
+     background: white;
+    border-radius:1.2rem ;
+    padding:1rem ;
+    border-left: 7px solid #2563eb;
+    box-shadow: 0 2px 6px rgba(0.5);
+
+}
+.selected-card h3 {
+   font-size: 1.3rem;
+   color: #0f2b3d;
+   margin-bottom:8px ;
+   display:flex ;
+   align-items: center;
+   gap: 8px;
+}
+
+.selected-card p{
+    color: #2c3e4e;
+    line-height: 1.4;
+    margin: 8px 0;
+}
+
+.placeholder-text {
+ color: #5f6c7a;
+}
+
+.hormone-badge {
+   background:#e9f0f9 ;
+    padding:8px 12px ;
+    border-radius:40px ;
+    font-size:0.75rem ;
+    font-family: 'Courier New',monospace;
+    color:#1e4a76 ;
+    margin-top:12px ;
+    border: 1px solid #cbdde9;
+}
+
+.grand-list  {
+background: white;
+border-radius:1.2rem ;
+padding: 0.6rem;
+max-height: 360px;
+overflow-y: auto;
+}
+
+.grand-list h4 {
+    margin: 0.5rem 0.5rem 0.8rem 0.5rem;
+    color:#1f2e3a ;
+    border-bottom:2px solid #cbdde9 ;
+    padding-bottom: 5px;
+}
+
+.gland-item {
+    background:#ffffff ;
+    border-radius: 1rem;
+    padding: 0.7rem; ;
+    margin-bottom:0.7rem ;
+    cursor:pointer ;
+    transition: all 0.15s ease ;
+    border: 1px solid #e2edf7;
+}
+
+.gland-item:hover{
+    background: #eef4ff;
+    transform: translateX(4px);
+    border-left:3px solid #3b82f6 ;
+}
+
+.gland-item.active-gland-list {
+    background:#dbeafe ;
+    border-left: 4px solid #1e40af;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.gland-name {
+   font-weight: 700;
+   color: #1e293b;
+}
+
+.gland-desc{
+    font-size: 0.75rem;
+    color: #475569;
+    margin-top: 4px;
+}
+
+.footer-note {
+
+    background:#e7edf3 ;
+    text-align:center ;
+    padding:0.9rem ;
+    font-size: 0.7rem;
+    color:#2c5368 ;
+    border-top: 1px solid #cbdde9;
+}
+
+@media (max-width:720) {
+    .endocrine-dashboard{
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .hormone-icon{
+        font-size: 1.2rem;
+    }
+}

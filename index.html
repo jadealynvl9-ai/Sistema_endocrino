@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sistema Endocrino | Visualización Interactiva</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="endocrine-container">
+    <div class="header">
+        <h1>
+             Sistema Endocrino
+            <span class="hormone-icon"> Hormonas</span>
+        </h1>
+        <p> Haz clic en cualquier glándula del dibujo o en la lista lateral</p>
+    </div>
+
+    <div class="endocrine-dashboard">
+        <!-- ZONA SVG: diagrama anatómico interactivo -->
+        <div class="diagram-area">
+            <svg viewBox="0 0 500 680" xmlns="http://www.w3.org/2000/svg">
+                <!-- Silueta humana de fondo muy suave -->
+                <path d="M248 50 Q268 52 274 80 L282 130 Q290 165 286 210 L280 260 Q276 295 264 330 L256 370 L250 420 Q247 460 245 500 L242 560 Q240 610 238 650 Q250 672 262 650 L260 610 Q258 560 255 500 L253 460 Q250 420 248 370 L240 330 Q230 295 222 260 L216 210 Q212 165 220 130 L226 80 Q232 52 248 50Z" fill="#f3e5c9" stroke="#bc9a6c" stroke-width="1.5" opacity="0.5" stroke-dasharray="2 2"/>
+
+                <!-- HIPOTÁLAMO (cerebro) -->
+                <circle id="hipotalamo" cx="248" cy="95" r="16" fill="#f97316" stroke="#7c2d12" stroke-width="2.2" cursor="pointer" data-gland="hipotalamo"/>
+                <text x="248" y="92" text-anchor="middle" font-size="8" fill="white" font-weight="bold">H</text>
+
+                <!-- HIPÓFISIS -->
+                <circle id="hipofisis" cx="248" cy="130" r="12" fill="#dc2626" stroke="#7f1d1d" stroke-width="2" cursor="pointer" data-gland="hipofisis"/>
+                <text x="248" y="126" text-anchor="middle" font-size="7" fill="white">P</text>
+
+                <!-- PINEAL -->
+                <circle id="pineal" cx="210" cy="88" r="9" fill="#a855f7" stroke="#4c1d95" stroke-width="2" cursor="pointer" data-gland="pineal"/>
+                <text x="210" y="85" text-anchor="middle" font-size="6" fill="white">Pi</text>
+
+                <!-- TIROIDES -->
+                <ellipse id="tiroides" cx="248" cy="210" rx="24" ry="13" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" cursor="pointer" data-gland="tiroides"/>
+                <text x="248" y="214" text-anchor="middle" font-size="8" fill="white">T</text>
+
+                <!-- PARATIROIDES (dos pequeñas) -->
+                <circle id="paratiroides1" cx="222" cy="204" r="5" fill="#06b6d4" stroke="#164e63" cursor="pointer" data-gland="paratiroides"/>
+                <circle id="paratiroides2" cx="274" cy="204" r="5" fill="#06b6d4" stroke="#164e63" cursor="pointer" data-gland="paratiroides"/>
+
+                <!-- TIMO -->
+                <path id="timo" d="M228 248 L268 248 L264 290 L232 290 Z" fill="#8b5cf6" stroke="#5b21b6" stroke-width="2" cursor="pointer" data-gland="timo"/>
+                <text x="248" y="273" text-anchor="middle" font-size="7" fill="white">TM</text>
+
+                <!-- SUPRARRENALES (ADRENALES) -->
+                <ellipse id="adrenal_izq" cx="215" cy="315" rx="12" ry="17" fill="#f59e0b" stroke="#b45309" cursor="pointer" data-gland="adrenal"/>
+                <ellipse id="adrenal_der" cx="281" cy="315" rx="12" ry="17" fill="#f59e0b" stroke="#b45309" cursor="pointer" data-gland="adrenal"/>
+                <text x="215" y="312" font-size="6" fill="white" text-anchor="middle">A</text>
+                <text x="281" y="312" font-size="6" fill="white" text-anchor="middle">A</text>
+
+                <!-- PÁNCREAS -->
+                <ellipse id="pancreas" cx="248" cy="405" rx="40" ry="12" fill="#10b981" stroke="#064e3b" stroke-width="2" cursor="pointer" data-gland="pancreas"/>
+                <text x="248" y="409" text-anchor="middle" font-size="8" fill="white">PÁNCREAS</text>
+
+                <!-- GÓNADAS (OVARIOS / TESTÍCULOS) -->
+                <ellipse id="gonada_izq" cx="212" cy="545" rx="14" ry="9" fill="#ec489a" stroke="#9d174d" cursor="pointer" data-gland="gonadas"/>
+                <ellipse id="gonada_der" cx="284" cy="545" rx="14" ry="9" fill="#ec489a" stroke="#9d174d" cursor="pointer" data-gland="gonadas"/>
+                <text x="212" y="542" font-size="6" fill="white" text-anchor="middle">G</text>
+                <text x="284" y="542" font-size="6" fill="white" text-anchor="middle">G</text>
+            </svg>
+        </div>
+
+        <!-- PANEL LATERAL CON INFO DINÁMICA -->
+        <div class="info-area">
+            <div class="selected-card" id="selectedGlandCard">
+                <h3> Glándula activa</h3>
+                <div id="dynamicGlandContent">
+                    <p class="placeholder-text">Selecciona una glándula del diagrama o de la lista</p>
+                </div>
+            </div>
+            <div class="gland-list">
+                <h4> Lista de glándulas endocrinas</h4>
+                <div id="glandListContainer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-note">
+         Haz clic sobre cualquier órgano de color (H, P, T, etc.) o en la lista. Aprende hormonas clave.
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
