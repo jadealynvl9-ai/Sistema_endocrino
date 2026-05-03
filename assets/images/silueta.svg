@@ -1,0 +1,45 @@
+<svg id="endocrineSvg" viewBox="0 0 550 750" xmlns="http://www.w3.org/2000/svg">
+    <!-- SILUETA BASE - AHORA MUY VISIBLE -->
+    <path d="M275 40 Q295 40 300 70 L310 130 Q320 180 310 230 L300 280 Q295 310 280 340 L270 400 L268 460 Q265 520 262 580 L260 650 Q275 685 290 650 L288 580 Q285 520 282 460 L280 400 Q270 340 260 310 Q245 270 235 220 L225 170 Q215 120 225 75 L240 50 Q255 40 275 40Z" 
+          fill="#d4a373" opacity="0.65" stroke="#5c3a21" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- Hipotálamo -->
+    <circle id="hipotalamo" cx="275" cy="105" r="18" fill="#f97316" stroke="#7c2d12" stroke-width="2" data-gland="hipotalamo" class="gland-svg" />
+    <text x="275" y="100" text-anchor="middle" font-size="8" fill="white" font-weight="bold">H</text>
+
+    <!-- Hipófisis -->
+    <circle id="hipofisis" cx="275" cy="145" r="14" fill="#ef4444" stroke="#7f1d1d" stroke-width="2" data-gland="hipofisis" class="gland-svg" />
+    <text x="275" y="140" text-anchor="middle" font-size="8" fill="white">P</text>
+
+    <!-- Pineal -->
+    <circle id="pineal" cx="230" cy="98" r="10" fill="#a855f7" stroke="#4c1d95" stroke-width="2" data-gland="pineal" class="gland-svg" />
+    <text x="230" y="94" text-anchor="middle" font-size="7" fill="white">Pi</text>
+
+    <!-- Tiroides -->
+    <ellipse id="tiroides" cx="275" cy="230" rx="28" ry="16" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" data-gland="tiroides" class="gland-svg" />
+    <text x="275" y="235" text-anchor="middle" font-size="9" fill="white">T</text>
+
+    <!-- Paratiroides -->
+    <circle id="paratiroides1" cx="245" cy="225" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
+    <circle id="paratiroides2" cx="305" cy="225" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
+
+    <!-- Timo -->
+    <path id="timo" d="M245 275 L305 275 L298 320 L252 320 Z" fill="#8b5cf6" stroke="#4c1d95" stroke-width="2" data-gland="timo" class="gland-svg" />
+    <text x="275" y="300" text-anchor="middle" font-size="8" fill="white">TM</text>
+
+    <!-- Suprarrenales -->
+    <ellipse id="adrenal_left" cx="235" cy="370" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
+    <ellipse id="adrenal_right" cx="315" cy="370" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
+    <text x="235" y="367" font-size="7" fill="white" text-anchor="middle">A</text>
+    <text x="315" y="367" font-size="7" fill="white" text-anchor="middle">A</text>
+
+    <!-- Páncreas -->
+    <ellipse id="pancreas" cx="275" cy="480" rx="45" ry="14" fill="#10b981" stroke="#064e3b" stroke-width="2" data-gland="pancreas" class="gland-svg" />
+    <text x="275" y="485" text-anchor="middle" font-size="9" fill="white">PÁNCREAS</text>
+
+    <!-- Gónadas (ovarios) -->
+    <ellipse id="ovary_left" cx="235" cy="630" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
+    <ellipse id="ovary_right" cx="315" cy="630" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
+    <text x="235" y="628" font-size="7" fill="white" text-anchor="middle">O</text>
+    <text x="315" y="628" font-size="7" fill="white" text-anchor="middle">O</text>
+</svg>

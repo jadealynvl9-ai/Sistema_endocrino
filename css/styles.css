@@ -1,194 +1,224 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 body {
-    background: linear-gradient(135deg,#d9e6f5 0%,#b8d9f0 100%);
-    font-family: 'Segoe UI', Roboto,'Helvetica Neue',sans-serif;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    background: linear-gradient(145deg, #d9e6f5 0%, #c2d9f0 100%);
     min-height: 100vh;
+    padding: 1rem;
+}
+
+.app-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background: #1e3a8a;
+    color: white;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+header h1 span {
+    font-weight: 300;
+    font-size: 1rem;
+    background: #3b82f6;
+    padding: 0.2rem 0.7rem;
+    border-radius: 2rem;
+    margin-left: 0.8rem;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     padding: 1.5rem;
 }
 
-.endocrine-container {
-    max-width: 1300px;
-    width: 100%;
-    background: rgba(225, 248, 235, 0.35);
-    overflow: hidden;
-    backdrop-filter: blur(2px);
-}
-
-.header {
-    background: #2c3e4e;
-    color: white;
-    padding: 1.2rem 2rem;
-    text-align: center;
-
-}
-
-.header h1 {
-    font-size: 2rem;
-    letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.hormone-icon {
-    opacity: 0.85;
-    font-size: 0.9rem;
-    margin-top: 6px;
-}
-
-.endocrine-dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.8rem;
-    padding: 2rem;
-}
-
-.diagrama-area {
+.diagram-wrapper {
     flex: 2;
     min-width: 280px;
-    background: #fffaf2;
+    background: #fffaf0;
     border-radius: 1.5rem;
     padding: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.diagrama-area svg {
+svg {
     width: 100%;
     height: auto;
-    display: block;
-    border-radius:1rem ;
-    background:#fef7e6 ;
     cursor: pointer;
 }
 
-.info-area {
-    flex:1.2 ;
-    min-width: 260px;
-    background: #f3f6fc ;
+.gland-svg {
+    transition: filter 0.1s, stroke 0.1s;
+}
+
+.gland-svg:hover {
+    stroke: #facc15 !important;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 4px gold);
+}
+
+.info-panel {
+    flex: 1.2;
+    min-width: 280px;
+    background: #f8fafc;
     border-radius: 1.5rem;
     padding: 1.2rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
     display: flex;
-    flex-direction:column ;
-    gap: 1.2rem;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.selected-card {
-     background: white;
-    border-radius:1.2rem ;
-    padding:1rem ;
-    border-left: 7px solid #2563eb;
-    box-shadow: 0 2px 6px rgba(0.5);
-
-}
-.selected-card h3 {
-   font-size: 1.3rem;
-   color: #0f2b3d;
-   margin-bottom:8px ;
-   display:flex ;
-   align-items: center;
-   gap: 8px;
+.search-box input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    border: 1px solid #cbd5e1;
+    font-size: 1rem;
+    outline: none;
 }
 
-.selected-card p{
-    color: #2c3e4e;
-    line-height: 1.4;
-    margin: 8px 0;
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #cbd5e1;
 }
 
-.placeholder-text {
- color: #5f6c7a;
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1.5rem 1.5rem 0 0;
+    color: #334155;
 }
 
-.hormone-badge {
-   background:#e9f0f9 ;
-    padding:8px 12px ;
-    border-radius:40px ;
-    font-size:0.75rem ;
-    font-family: 'Courier New',monospace;
-    color:#1e4a76 ;
-    margin-top:12px ;
-    border: 1px solid #cbdde9;
+.tab-btn.active {
+    background: #e2e8f0;
+    color: #1e3a8a;
+    border-bottom: 2px solid #2563eb;
 }
 
-.grand-list  {
-background: white;
-border-radius:1.2rem ;
-padding: 0.6rem;
-max-height: 360px;
-overflow-y: auto;
-}
-
-.grand-list h4 {
-    margin: 0.5rem 0.5rem 0.8rem 0.5rem;
-    color:#1f2e3a ;
-    border-bottom:2px solid #cbdde9 ;
-    padding-bottom: 5px;
-}
-
-.gland-item {
-    background:#ffffff ;
+.panel-content {
+    background: white;
     border-radius: 1rem;
-    padding: 0.7rem; ;
-    margin-bottom:0.7rem ;
-    cursor:pointer ;
-    transition: all 0.15s ease ;
-    border: 1px solid #e2edf7;
+    padding: 1rem;
+    min-height: 180px;
+    box-shadow: inset 0 0 0 1px #e2e8f0;
 }
 
-.gland-item:hover{
-    background: #eef4ff;
-    transform: translateX(4px);
-    border-left:3px solid #3b82f6 ;
+.gland-card-placeholder {
+    color: #64748b;
+    text-align: center;
+    padding: 1rem;
 }
 
-.gland-item.active-gland-list {
-    background:#dbeafe ;
-    border-left: 4px solid #1e40af;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+.gland-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.gland-name {
-   font-weight: 700;
-   color: #1e293b;
+.gland-list-item {
+    background: white;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-left: 4px solid #94a3b8;
+    transition: 0.1s;
 }
 
-.gland-desc{
-    font-size: 0.75rem;
-    color: #475569;
-    margin-top: 4px;
+.gland-list-item.active {
+    border-left-color: #2563eb;
+    background: #dbeafe;
 }
 
-.footer-note {
-
-    background:#e7edf3 ;
-    text-align:center ;
-    padding:0.9rem ;
-    font-size: 0.7rem;
-    color:#2c5368 ;
-    border-top: 1px solid #cbdde9;
+.gland-list-item strong {
+    display: block;
+    font-size: 1rem;
 }
 
-@media (max-width:720) {
-    .endocrine-dashboard{
-        padding: 1rem;
-        gap: 1rem;
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #e2e8f0;
+    color: #1e293b;
+    font-size: 0.8rem;
+}
+
+/* Modo oscuro */
+body.dark {
+    background: #0f172a;
+}
+
+body.dark .app-container {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark .diagram-wrapper {
+    background: #111827;
+}
+
+body.dark .info-panel {
+    background: #0f172a;
+}
+
+body.dark .panel-content {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+body.dark .gland-list-item {
+    background: #334155;
+    color: #f1f5f9;
+}
+
+body.dark .tab-btn.active {
+    background: #334155;
+    color: #facc15;
+}
+
+@media (max-width: 750px) {
+    .main-layout {
+        flex-direction: column;
     }
-    .header h1 {
-        font-size: 1.5rem;
-    }
-    .hormone-icon{
-        font-size: 1.2rem;
-    }
+    header h1 { font-size: 1.2rem; }
 }
