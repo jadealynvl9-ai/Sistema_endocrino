@@ -3,87 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Sistema Endocrino Visual | Interactivo</title>
+    <title>Sistema Endocrino Visual | Mejorado</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" type="module" defer></script>
 </head>
 <body>
     <div class="app-container">
         <header>
-            <h1>🧬 Sistema Endocrino <span>Interactivo</span></h1>
-            <button id="darkModeToggle" aria-label="Modo oscuro">🌙</button>
+            <h1>🧬 Sistema Endocrino <span>Interactivo + Tour</span></h1>
+            <div style="display: flex; gap: 0.8rem;">
+                <button id="tourBtn" class="icon-btn" aria-label="Iniciar tour guiado">🎓 Tour</button>
+                <button id="darkModeToggle" class="icon-btn" aria-label="Modo oscuro">🌙</button>
+            </div>
         </header>
 
         <div class="main-layout">
-            <!-- Diagrama SVG -->
+            <!-- Diagrama SVG mejorado (silueta realista) -->
             <div class="diagram-wrapper">
-                <svg id="endocrineSvg" viewBox="0 0 550 750" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Silueta base -->
-                    <path d="M275 40 Q295 40 300 70 L310 130 Q320 180 310 230 L300 280 Q295 310 280 340 L270 400 L268 460 Q265 520 262 580 L260 650 Q275 680 290 650 L288 580 Q285 520 282 460 L280 400 Q270 340 260 310 Q245 270 235 220 L225 170 Q215 120 225 75 L240 50 Q255 40 275 40Z" fill="#fef3c7" stroke="#b45309" stroke-width="1.5" opacity="0.2"/>
+                <svg id="endocrineSvg" viewBox="0 0 600 850" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Silueta humana realista (cabeza, torso, brazos, piernas) -->
+                    <path d="M300 60 Q320 55 325 75 L320 110 Q318 130 315 150 L310 170 
+                             Q308 185 305 200 L298 230 L290 260 L280 300 L275 350 
+                             L272 400 L270 460 L268 520 L265 580 L260 640 L255 700 
+                             Q250 730 245 700 L240 640 L235 580 L232 520 L230 460 
+                             L228 400 L225 350 L220 300 L210 260 L200 230 L192 200 
+                             L185 170 L180 150 L178 130 L175 110 L172 90 Q170 70 190 65 Z" 
+                          fill="#D2B48C" opacity="0.7" stroke="#5C3A21" stroke-width="3" stroke-linejoin="round"/>
+                    
+                    <!-- Brazos -->
+                    <path d="M190 220 L140 260 L130 280 L145 285 L190 250" fill="#D2B48C" stroke="#5C3A21" stroke-width="2.5" opacity="0.7"/>
+                    <path d="M305 225 L360 260 L375 280 L360 285 L310 255" fill="#D2B48C" stroke="#5C3A21" stroke-width="2.5" opacity="0.7"/>
+                    
+                    <!-- Piernas -->
+                    <path d="M260 700 L245 780 L265 785 L275 720" fill="#D2B48C" stroke="#5C3A21" stroke-width="2.5" opacity="0.7"/>
+                    <path d="M275 700 L295 780 L315 785 L295 720" fill="#D2B48C" stroke="#5C3A21" stroke-width="2.5" opacity="0.7"/>
 
-                    <!-- Hipotálamo -->
-                    <circle id="hipotalamo" cx="275" cy="105" r="18" fill="#f97316" stroke="#7c2d12" stroke-width="2" data-gland="hipotalamo" class="gland-svg" />
-                    <text x="275" y="100" text-anchor="middle" font-size="8" fill="white" font-weight="bold">H</text>
+                    <!-- Glándulas (posiciones ajustadas a la nueva silueta) -->
+                    <circle id="hipotalamo" cx="280" cy="120" r="18" fill="#f97316" stroke="#7c2d12" stroke-width="2" data-gland="hipotalamo" class="gland-svg" />
+                    <text x="280" y="116" text-anchor="middle" font-size="8" fill="white" font-weight="bold">H</text>
 
-                    <!-- Hipófisis -->
-                    <circle id="hipofisis" cx="275" cy="145" r="14" fill="#ef4444" stroke="#7f1d1d" stroke-width="2" data-gland="hipofisis" class="gland-svg" />
-                    <text x="275" y="140" text-anchor="middle" font-size="8" fill="white">P</text>
+                    <circle id="hipofisis" cx="280" cy="165" r="14" fill="#ef4444" stroke="#7f1d1d" stroke-width="2" data-gland="hipofisis" class="gland-svg" />
+                    <text x="280" y="161" text-anchor="middle" font-size="8" fill="white">P</text>
 
-                    <!-- Pineal -->
-                    <circle id="pineal" cx="230" cy="98" r="10" fill="#a855f7" stroke="#4c1d95" stroke-width="2" data-gland="pineal" class="gland-svg" />
-                    <text x="230" y="94" text-anchor="middle" font-size="7" fill="white">Pi</text>
+                    <circle id="pineal" cx="235" cy="108" r="10" fill="#a855f7" stroke="#4c1d95" stroke-width="2" data-gland="pineal" class="gland-svg" />
+                    <text x="235" y="104" text-anchor="middle" font-size="7" fill="white">Pi</text>
 
-                    <!-- Tiroides -->
-                    <ellipse id="tiroides" cx="275" cy="230" rx="28" ry="16" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" data-gland="tiroides" class="gland-svg" />
-                    <text x="275" y="235" text-anchor="middle" font-size="9" fill="white">T</text>
+                    <ellipse id="tiroides" cx="280" cy="260" rx="30" ry="17" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" data-gland="tiroides" class="gland-svg" />
+                    <text x="280" y="265" text-anchor="middle" font-size="9" fill="white">T</text>
 
-                    <!-- Paratiroides (2 pequeñas) -->
-                    <circle id="paratiroides1" cx="245" cy="225" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
-                    <circle id="paratiroides2" cx="305" cy="225" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
+                    <circle id="paratiroides1" cx="248" cy="252" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
+                    <circle id="paratiroides2" cx="312" cy="252" r="6" fill="#06b6d4" stroke="#164e63" data-gland="paratiroides" class="gland-svg" />
 
-                    <!-- Timo -->
-                    <path id="timo" d="M245 275 L305 275 L298 320 L252 320 Z" fill="#8b5cf6" stroke="#4c1d95" stroke-width="2" data-gland="timo" class="gland-svg" />
-                    <text x="275" y="300" text-anchor="middle" font-size="8" fill="white">TM</text>
+                    <path id="timo" d="M248 310 L312 310 L305 355 L255 355 Z" fill="#8b5cf6" stroke="#4c1d95" stroke-width="2" data-gland="timo" class="gland-svg" />
+                    <text x="280" y="335" text-anchor="middle" font-size="8" fill="white">TM</text>
 
-                    <!-- Suprarrenales -->
-                    <ellipse id="adrenal_left" cx="235" cy="370" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
-                    <ellipse id="adrenal_right" cx="315" cy="370" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
-                    <text x="235" y="367" font-size="7" fill="white" text-anchor="middle">A</text>
-                    <text x="315" y="367" font-size="7" fill="white" text-anchor="middle">A</text>
+                    <ellipse id="adrenal_left" cx="238" cy="420" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
+                    <ellipse id="adrenal_right" cx="322" cy="420" rx="14" ry="20" fill="#f59e0b" stroke="#78350f" data-gland="adrenal" class="gland-svg" />
+                    <text x="238" y="417" font-size="7" fill="white" text-anchor="middle">A</text>
+                    <text x="322" y="417" font-size="7" fill="white" text-anchor="middle">A</text>
 
-                    <!-- Páncreas -->
-                    <ellipse id="pancreas" cx="275" cy="480" rx="45" ry="14" fill="#10b981" stroke="#064e3b" stroke-width="2" data-gland="pancreas" class="gland-svg" />
-                    <text x="275" y="485" text-anchor="middle" font-size="9" fill="white">PÁNCREAS</text>
+                    <ellipse id="pancreas" cx="278" cy="530" rx="48" ry="15" fill="#10b981" stroke="#064e3b" stroke-width="2" data-gland="pancreas" class="gland-svg" />
+                    <text x="278" y="535" text-anchor="middle" font-size="9" fill="white">PÁNCREAS</text>
 
-                    <!-- Gónadas (ovarios) -->
-                    <ellipse id="ovary_left" cx="235" cy="630" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
-                    <ellipse id="ovary_right" cx="315" cy="630" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
-                    <text x="235" y="628" font-size="7" fill="white" text-anchor="middle">O</text>
-                    <text x="315" y="628" font-size="7" fill="white" text-anchor="middle">O</text>
+                    <ellipse id="ovary_left" cx="238" cy="690" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
+                    <ellipse id="ovary_right" cx="322" cy="690" rx="18" ry="10" fill="#ec489a" stroke="#831843" data-gland="gonadas" class="gland-svg" />
+                    <text x="238" y="688" font-size="7" fill="white" text-anchor="middle">O</text>
+                    <text x="322" y="688" font-size="7" fill="white" text-anchor="middle">O</text>
                 </svg>
             </div>
 
             <!-- Panel derecho mejorado -->
             <div class="info-panel">
                 <div class="search-box">
-                    <input type="text" id="glandSearch" placeholder="🔍 Buscar glándula..." />
+                    <input type="text" id="glandSearch" placeholder="🔍 Buscar glándula o hormona..." />
+                    <button id="clearSearch" class="clear-btn">✖</button>
                 </div>
                 <div class="tabs">
                     <button class="tab-btn active" data-tab="desc">📖 Descripción</button>
-                    <button class="tab-btn" data-tab="horm">💊 Hormonas</button>
+                    <button class="tab-btn" data-tab="horm">💊 Hormonas + Gráfico</button>
                     <button class="tab-btn" data-tab="curio">✨ Curiosidad</button>
                 </div>
                 <div id="panelContent" class="panel-content">
-                    <!-- Contenido dinámico -->
                     <div class="gland-card-placeholder">Selecciona una glándula</div>
                 </div>
-                <div class="gland-list" id="glandList">
-                    <!-- Lista completa se genera desde JS -->
-                </div>
+                <div class="gland-list" id="glandList"></div>
             </div>
         </div>
         <footer>
-            🧠 Interactúa con el diagrama o la lista | Modo oscuro disponible
+            🧠 Haz clic en el diagrama o lista | Tour guiado | Modo oscuro | Gráfico hormonal
         </footer>
     </div>
 </body>
